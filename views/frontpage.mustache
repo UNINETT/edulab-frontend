@@ -16,17 +16,33 @@
 
                 <p><strong>Kom i gang </strong>
 
+                {{#user}}
+
                     <a class="btn btn-default btn-lg" target="_blank"
                         href="/create-lab" role="button">
                         <span class="glyphicon glyphicon-cloud"></span> Opprett ny lab</a>
 
                     <a class="btn btn-warning btn-lg" target="_blank"
-                        href="#" role="button">
+                        href="/machines" role="button">
                         <span class="glyphicon glyphicon-console"></span> Administrer maskiner</a>
 
                     <a class="btn btn-primary btn-lg" target="_blank"
+                        href="/machines-admin" role="button">
+                        <span class="glyphicon glyphicon-dashboard"></span> Oversikt administrator</a>
+
+                    <a class="btn btn-primary btn-lg" target="_blank"
                         href="#" role="button">
-                        <span class="glyphicon glyphicon-dashboard"></span> Oversikt forbruk</a>
+                        <span class="glyphicon glyphicon-euro"></span> Oversikt forbruk</a>
+
+                {{/user}}
+                {{^user}}
+
+                <a class="btn btn-danger btn-lg" target="_blank"
+                    href="#" role="button">
+                    <span class="glyphicon glyphicon-user"></span> Logg inn</a>
+
+                {{/user}}
+
 
                 </p>
 
