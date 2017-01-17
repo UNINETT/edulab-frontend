@@ -4,6 +4,11 @@ body {
     padding-top: 70px;
 }
 
+p.itemdesc {
+    margin-top: 0px;
+    font-size: 80%;
+    color: #888;
+}
 
 
 
