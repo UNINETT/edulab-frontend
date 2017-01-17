@@ -14,28 +14,199 @@
                 <p>Som faglærer kan du enkelt opprette en maskinlab for dine studenter. Du kan her sette opp en mal og ressurspolicy for hvor mye ressurser hver student kan disponere.</p>
 
                 <form>
+
+
                   <div class="form-group">
                     <label for="labname">Navn på lab</label>
-                    <input type="name" class="form-control" id="labname" placeholder="Navn på lab">
+                    <input type="name" class="form-control" id="labname" placeholder="Navn på lab" value="Lab 3 i faget Maskinlæring (IEX7765)">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+
+
+
+                  <div class="control-group">
+                      <label for="select-gr">Velg undervisningsgruppe</label>
+                      <select id="select-gr" placeholder="Velg gruppe..."></select>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <input type="file" id="exampleInputFile">
-                    <p class="help-block">Example block-level help text here.</p>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Check me out
-                    </label>
-                  </div>
+                  <script>
+                  // <select id="select-tools"></select>
+                  $('#select-gr').selectize({
+                      maxItems: 1,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      options: [
+                          {id: 1, title: 'Maskinlæring (IEX7765)'},
+                          {id: 2, title: 'Matematikk 113 (MAT113)'},
+                          {id: 3, title: 'Fysikk 333 (FYI333)'}
+                      ],
+                      create: false
+                  });
+                  </script>
+
+
+
+
+
+
+
+
+                    <div class="control-group">
+    					<label for="select-images2">Tilgjengelige maskinimage</label>
+    					<select id="select-images2" class="repositories" placeholder="Gjør et utvalg av image"></select>
+                        <p style="margin-top: 0px; font-size: 80%; color: #888">Du kan også velge å <a href="#">laste opp egne image</a></p>
+    				</div>
+    				<script>
+
+var icons = {
+    "redhat": "data:image/png;base64,R0lGODlhFAAUAPQeAPj5+fgmIm91dg0JCuHi4sjJyqGjpNja2uUkII+Wl8ghHZEXFS80NqgbGXUVFLe8vZupqUsODlhcXegfG62vsBkfIbsiH9wjH3t/gezu7k4pKZuhouwlIQAAAP///////yH5BAEAAB8ALAAAAAAUABQAAAXS4CeKACVVKCMU3uh+3lN1dDcMtES8MEY7ikYjuMANDi8DbYAIOAPDxTIzOtQilojDwnEicB0GAMawDRwBBYLD7jpqlE+h47ggIotuoA2tiQUdekUDeHwKDhE0B2VoXYc4FnscF06JBjN0E08IQ21saR0YFWAaFppOnp9SGGU0DwcaC5RPTw04GxIdFSoeGT5aCw0LC4k0BRnHACseHhQCEBsbCZi6AMzX2B4FLABgHQlI2dgFGx5KGAYGAOHi2AQSFNcu7dcULMw89Nk8I/otLiEAADs=",
+    "suse": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFAAAAb7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8b7A8C2Zo+QAAABB0Uk5TAA8fLz9PX29/j5+vv8/f7/rfIY4AAACVSURBVBgZdcFBAoMgDATAhQCGSGD//9qCaOulM8B/omczFbyUzq1n3ILxx7A53wyXpNb5o3jEYoPbiHgpnRfFTRpp0bk4bt2keE28YBOGxjrgXDAFQBhiygOFC6bSItwlj4rIBUun5UZaQOLkWKKRZ5GYGxfFFg7ndB4kR8BXSAmxkTzwJsbJsImq1sZLxSN3bp6wfAARwQtYHbgRtQAAAABJRU5ErkJggg==",
+    "ubuntu": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAADj0lEQVR42nVUV2gUURSdHwvGGisqir0jWD4kKrZEIwYlJhoLRgUjfthAMPphb/gRBLF3BEU09k7EhsYeERU1s7uzJesmm2w2yWb77vG+O7OzGaMDjylv3r3nnnvukfCPKx4OImyXUVt8FM7CbFiXjIIyfwBsK8ejcl8BGp7dQLS2CvF4TP0/HtfPSnoQ7WNQ/gLXrnyYZnWFPLk1TDM6wpTRGaaZtDJSYZrWHuVpLaDkDkL16Z2IBRoN56WmL/5Pz2GZ20cL0AVmCsqrybNIYJnXFzIFFgmsy8Yg5vfpQaUEWP+XV4SojSGQeGaE4n12D070e/tS/j9SZYc5qzftd4KycChToCMM2cuhZPc3BpveHhb6Vn1yG+qfXIXv5W3U3T1PZe7Q+bKtGKdWQ0gFTfFQgBBGo3AXrWeO9GDpqahYPxOOTVmINjYYGlZ77Qjcx7bAsTETcnpHokOtRJ6SgrBTgRSy/WSCE+hM0zvAsTadD/tKH8C1ezncRzbDuSUHnnN76ZAF4Uo7Qubv3PkEEHlqCjwXD0KquXCAXtqqwQi64CXidjLBNWd2EUcdeJ/vhEIECXx7ywm9N0/qTROlKyQvqYKgC+Jl0b35/eHaswLxaATBX2Uwz+mZRJ6gQ3Q2fwx07hcMTe4TWknJG8YIfK/v80+ey0UIu6zwXj/OiHTpNFnypFZoeH4TjR+ewrpoRHKPkklK7kDWVMSjtr3+0SUWt+dS0f8DTmmDmvP74L11mhAO0dFzQHtBGjdCyRsOz4X9qDywGvFImLKXqBoUJRu0SU3I7A7EYgSiEsrikYY9qerQBpgE6URqOZViyx+LWDCAmK8ezq25ms7UyeHRo+TeGydUFby6p/KsDYGYIMlf9gKmzG46+YJP96ntfCDws4ynwJLdj8sUXawvuaJrUsiLk4hklEhUJ8WCfkKSo5aS6OjUdoTiOFz7VyFk/aHOaSSiJvn2Dr+3LYZ9zWTINE2JckV1wR8f1dHzvXlsmF+V+BRG5Ct9yPKIuCtISp/hPlqozbIDSs4g1YVo2QsmEk11SfuqObOTbUk3BV6dmSMlZzDrTYi6msYucSlLR2uiTmWnamZf7sOb2D0MYm7aYXGf04tGsRCOdRnkje04acOz4qR9aU96UDFOQkKCE2ESBl/UpCGntaTVgg0k8LW0ucH+fUW91ai7cxa2VRN0wZo1+ZizenIT/e+fNHNrcf0BOiF9CQcsOJkAAAAASUVORK5CYII=",
+    "windows": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAADf0lEQVR42p2Ua0yTZxiG+3s/djDZn2WJW7IDMgdD58xA46gOJ1vcIBu6LHGDETPFmc0RzQYLGwoSEKejk8MIAzNkgohgG7EURrEcOkoFoS0glEID1EM5SVsO4rV+L9Gk9M/cm9z5kvfH9d738zzfI5OtOHjPvPUai9pEPPnvci8jiinteeka2f85M1VHmS99R8iduZ6ZrwIZ3h2MLXk/D1zux4PevzfNbOZ2Fs5vFkBXSggT8cGMbH8F09ZN9JgaqNMXs7g45we2O/v9H5u/0YTnpJz7F7ey8HsY7iNBjO1aS3/YavoTD1FjLGZPZhAZtbupNqejtRZSd/Mk+Ya9HKuMxXpz0BfqqczAnbtZAKW4noQ1Ati17jlsZefIrtnH3vz1JF+Wk9b0HorWHUJJdaGcvpDM9LhrBVARLaI+KPO6Sw1gOm4Ntg8DMG0MprdDw0FFON8Wb+HnvyPIaokkt+0joW+UW6hUlfo2bmGwG3f6BgGcPfsJUyfeF/Ub3LgKy67P0HVX8cXxNzhcEf7InQSTwIcrd9JlNPm643YPQ5oidM2dXGkZQNU+TF93B468I1gLFORokojLfvNR3IfufrwWTnrFAW6PT/kCC5odHFM7KWibJKHChvyEmYjUFn6ptuBZgJzyRGJ/DRT1klyd+WcH2a1yDio3UFKt8I17171A5JlOsmrt5DSNE/enGXlWO+v2XyY4upzRQQMTAxrURqVwekodT546gcLaFC6oS/y7q+m/S7TCjOTyuHqMj4vMhKbpWLunivgULeMtGejTn2e26xDzoyXcGlByx1LKjGUfE60x/nOZ2WATrqS431+y80FuD5uSGnkpqpTCcgNDVbG0nwpgRvUEXPeqN2xZBhl9Vz/lzvSSL1CCpdYMC4dS/bad7uDtRDWvx5RhMBjozAnF/EcQc82rwPIq9EUuf73A6w2/iRr7xH1YP0mfF90QcV/7UkXU11cYNf5FS9rL2CoCWep4Bkwhy0DTk0xonhYP+rhTqKz8dFZPjdqArtUsVKgyEpFQzdE8PXZNIvqMQG4pX/DGfZalXrkQJhlDV+UM2leMi9Ruqagr19PMtJsh+wjdJTF05r6IS/uUF7LaJ665/jsBdDqd/30LTTr66Kv/AUfjW0y2h3i1k7HmbVjqD4jBd7lcQo+11iT3Q1YHBp2Ktkal+M1GHDC36L90/wW0ZQsnJA/LrQAAAABJRU5ErkJggg==",
+    "_default": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACc0lEQVR42r2UTWtTQRSGg1bbarHVljQV8Q+oUF2IgosKigjiwn/gD9CVSxduXIgfIBQXVaHaapqYmzSLpPYjVq0gogiKMbZVE6y2Fgra2oIwc+b1zEy9NzcfRlx44Z3NnXnmPWfOOYHA//rwPQtVCINenIYc2Q/54DDU63NQX1LAyifUBix9gJrsBj09CTG8FzIRhIisq6zkdshMF+j5KXNpFUc50MszkKk9EOG1nuKtPsmBNVaRRnbO0NxlP1DNT4CmeuD7fuRB2Qsc5iFIh0HhgJFMbgNNnID62OvfvzQNenMeam4EATV1DeIOH0h02M35W5yjz97mxXfs4iLo/Q0fQ3GOKXcJcqwLMtYMcTfAF11nIC9uSJE6IzkYAj06BpW7yvAZD7LwDPTqLGjsAEM2QQyw60g9ZLzNSBX6NPAmhLOZIR2e+Eap4f18ILXL0uYfGxdG0XpzRgy2e3JaQIXbFijj/DMRKpfTBJneaYFzGeuGX7+S9AXKAHkRzhYTpki0+3VvI+TQbgv8Og4ZbeDUtFWVG7I0IYfKFWsCDXW6QBFt/CPQDdnmI1QmGdMOO4sc/gVQL3I15FKJEqCINHC+W6vKy6F+FH7dMnEOKe0HlnZOsVyHgrvBVzZu+bDD+xaoTA4rOzQpcppB+V7dKd22rfTP5FafRNGjlAF/Xxpv4QKvM1J5fmXo6ufRJHTla3B0vS10XVsM9MrmIQM3eCGuQmQ8yF113ML80+Ytt9oV0PgRPhD0BkJ6hwfkzjHdw87oCff9NPf38kzt2agWJ3lzDyhzFDS8z4Y8OwoaPWiHx3IB/z65v2Wtw5VZ4OdCtNb+X/gs3gJ6Pb3jAAAAAElFTkSuQmCC"
+}
+
+
+    				$('#select-images2').selectize({
+    					maxItems: null,
+    					valueField: 'id',
+    					labelField: 'title',
+    					searchField: 'title',
+    					options: [
+    						{id: 1, title: 'Microsoft Windows Server 2016', type: 'windows'},
+    						{id: 2, title: 'Microsoft Windows Server 2012 R2', type: 'windows'},
+    						{id: 3, title: 'Microsoft Windows Server 2008 R2', type: 'windows'},
+                            {id: 4, title: 'Ubuntu Server 14.04 LTS (HVM)', type: 'ubuntu'},
+                            {id: 5, title: 'Ubuntu Server 16.04 LTS (HVM)', type: 'ubuntu'},
+                            {id: 6, title: 'SUSE Linux Enterprise Server 12 SP2 (HVM)', type: 'suse'},
+                            {id: 7, title: 'Red Hat Enterprise Linux 7.3 (HVM)', type: 'redhat'}
+
+
+    					],
+                        render: {
+                            option: function(item, escape) {
+                                console.log("Item", item);
+                                var icon = (item.type ? icons._default : icons[item.type]);
+                                var icon = icons[item.type];
+                                console.log("Icon", icon);
+                                return '<div>' +
+                                    '<span class="title">' +
+                                        '<span class="name"><img src="' + icon + '" /> ' + escape(item.title) + '</span>' +
+                                        '<span class="by">Amazon AWS</span>' +
+                                    '</span>' +
+                                    // '<span class="description">' + escape(item.desc) + '</span>' +
+                                '</div>';
+                            }
+                        },
+    					create: false
+    				});
+    				</script>
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="control-group">
+                                <label for="select-it">Velg instanstype</label>
+                                <select id="select-it" class="repositories" placeholder="Velg instanstype"></select>
+                                <p style="margin-top: 0px; font-size: 80%; color: #888">Sjekk <a href="#">prislista</a> for detaljer.</p>
+                            </div>
+                            <script>
+
+                            var types = {
+                                "gen": "General Purpose",
+                                "cpu": "CPU Optimized",
+                                "gpu": "GPU Optimized",
+                                "mem": "Memory Optimized"
+                            }
+
+                            $('#select-it').selectize({
+                                maxItems: 1,
+                                valueField: 'id',
+                                labelField: 'title',
+                                searchField: 'title',
+                                options: [
+                                    {id: 1, title: 't2.nano', type: 'gen', 'cpu': 1, 'mem': 0.5},
+                                    {id: 2, title: 't2.micro', type: 'gen', 'cpu': 1, 'mem': 1},
+                                    {id: 3, title: 't2.small', type: 'gen', 'cpu': 1, 'mem': 2},
+                                    {id: 4, title: 't2.medium', type: 'gen', 'cpu': 2, 'mem': 4},
+                                    {id: 5, title: 't2.large', type: 'gen', 'cpu': 2, 'mem': 8},
+                                    {id: 6, title: 't2.xlarge', type: 'gen', 'cpu': 4, 'mem': 16},
+                                    {id: 7, title: 'c4.large', type: 'cpu', 'cpu': 2, 'mem': 3.75},
+                                    {id: 8, title: 'c4.xlarge', type: 'cpu', 'cpu': 4, 'mem': 7.5},
+                                    {id: 9, title: 'g2.2xlarge', type: 'gpu', 'cpu': 8, 'mem': 15},
+                                    {id:10, title: 'r4.large', type: 'mem', 'cpu': 2, 'mem': 15.25},
+                                ],
+                                render: {
+                                    option: function(item, escape) {
+                                        console.log("Item", item)
+                                        var icon = (item.type ? icons._default : icons[item.type])
+                                        var icon = icons[item.type]
+                                        console.log("Icon", icon)
+                                        return '<div>' +
+                                            '<span class="title">' +
+                                                '<span class="name"><i style="color: #533" class="glyphicon glyphicon-cloud"></i> ' + escape(item.title) + '</span>' +
+                                            '</span>' +
+                                            // '<span class="description">' + escape(item.desc) + '</span>' +
+                                            '<ul class="meta">' +
+                                                '<li class="language">' + types[item.type] + '</li>'+
+                                                '<li class="watchers"><span>' + escape(item.cpu) + '</span> CPUs</li>' +
+                                                '<li class="forks"><span>' + escape(item.mem) + '</span> GiB memory</li>' +
+                                            '</ul>' +
+                                        '</div>'
+                                    }
+                                },
+                                create: false
+                            })
+                            </script>
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="instance-num">Max instanser per elev</label>
+                              <input type="number" class="form-control" id="instance-num"  placeholder="Max instanser" min="1" max="99" value="1">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="instance-tot">Max instanser totalt</label>
+                              <input type="number" class="form-control" id="instance-tot"  placeholder="Max instanser" min="1" max="99" value="99">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                              <label for="instance-num">Max instanser per elev</label>
+                              <input type="number" class="form-control" id="instance-num"  placeholder="Max instanser" min="1" max="99" value="1">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
                   <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-                  <a class="btn btn-primary " target="_blank"
-                      href="#" role="button">
-                      <span class="glyphicon glyphicon-cloud"></span> Opprett ny lab</a>
+                  <p class="gutter">
+                      <a class="btn btn-primary " target="_blank"
+                          href="#" role="button">
+                          <span class="glyphicon glyphicon-cloud"></span> Opprett ny lab</a>
+                  </p>
                 </form>
 
                 <p></p>
