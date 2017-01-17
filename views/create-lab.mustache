@@ -180,11 +180,22 @@ var icons = {
 
                     <div class="row">
 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
 
                             <div class="form-group">
-                              <label for="instance-num">Max instanser per elev</label>
-                              <input type="number" class="form-control" id="instance-num"  placeholder="Max instanser" min="1" max="99" value="1">
+                              <label for="period-from">Oppstartsdato</label>
+                              <input type="text" class="form-control" id="period-from">
+                              <p class="itemdesc">Studentene vil ikke kunne opprette noen maskiner før ved midnatt denne datoen.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                              <label for="period-to">Nedstenging av lab</label>
+                              <input type="text" class="form-control" id="period-to">
+                              <p class="itemdesc">Etter datoen for nedstenging av lab-en vil alle maskinene automatisk slettes.</p>
                             </div>
 
                         </div>
@@ -194,7 +205,20 @@ var icons = {
 
 
 
+                    <script>
+                    var date = new Date();
+                    var opts = {
+                        format: "yyyy-mm-dd",
+                        language: "no",
+                        calendarWeeks: true,
+                        autoclose: true,
+                        todayHighlight: true,
+                        startDate: date
+                    };
+                    $('#period-from').datepicker(opts);
+                    $('#period-to').datepicker(opts);
 
+                    </script>
 
 
 
