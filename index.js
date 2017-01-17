@@ -45,14 +45,14 @@ app.set('json spaces', 2);
 app.set('port', nconf.get('http:port'));
 app.enable('trust proxy');
 
-// Use public
+
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
 app.use(session({
-	secret: 'keyboard cat',
+	secret: nconf.get('dataporten:sessionkey'),
 	resave: false,
 	saveUninitialized: false
 }));
@@ -73,38 +73,52 @@ if (doAuth) {
 	dpsetup.setupLogout(app, '/logout');
 	dpsetup.setupCallback(app);
 
-	var authzConfig = {"redirectOnNoAccess": "/login"};
-	var aclSolberg = (new Dataporten.Authz(authzConfig))
-		.allowUsers(['9f70f418-3a75-4617-8375-883ab6c2b0af'])
-		.allowGroups(['fc:adhoc:892fe78e-14cd-43b1-abf8-b453a2c7758d'])
-		.middleware();
+	// var authzConfig = {"redirectOnNoAccess": "/login"};
+	// var aclSolberg = (new Dataporten.Authz(authzConfig))
+	// 	.allowUsers(['9f70f418-3a75-4617-8375-883ab6c2b0af'])
+	// 	.allowGroups(['fc:adhoc:892fe78e-14cd-43b1-abf8-b453a2c7758d'])
+	// 	.middleware();
 
 	app.use('/', Health);
-	app.use('/', aclSolberg);
+	// app.use('/', aclSolberg);
 }
 
 app.use('/static/uninett-theme', express.static('node_modules/uninett-bootstrap-theme'));
-app.use('/', express.static('public'));
 
-app.get('/', function(req, res) {
+app.get('/test', function(req, res) {
 	var data = {
 		"status": "Hello World",
 		"descr": "Nothing here...",
 	};
+    if (req.user) {
+        data.user = req.user;
+    }
 	res.writeHead(200, {
 		'Content-Type': 'application/json'
 	});
-	res.write(JSON.stringify(data, undefined, 2));
-	res.end();
-	console.log("GET /");
+	res.end(JSON.stringify(data, undefined, 2));
 });
+
+app.use('/', express.static('public'));
+
+// app.get('/', function(req, res) {
+// 	var data = {
+// 		"status": "Hello World",
+// 		"descr": "Nothing here...",
+// 	};
+// 	res.writeHead(200, {
+// 		'Content-Type': 'application/json'
+// 	});
+// 	res.write(JSON.stringify(data, undefined, 2));
+// 	res.end();
+// 	console.log("GET /");
+// });
 
 app.get('*', function(req, res){
-  res.send('404 Not found', 404);
+	res.send('404 Not found', 404);
 });
 
 
-console.log("setup complete");
 app.listen(app.get('port'), function() {
 	console.log('Node app is running on port', app.get('port'));
 });

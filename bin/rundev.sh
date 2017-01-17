@@ -13,6 +13,8 @@ docker run -d --name ${KUBERNETES_DEPLOYMENT} \
     -v ${PWD}/index.js:/app/index.js \
     -v ${PWD}/lib:/app/lib \
     -v ${PWD}/public:/app/public \
+    -v ${PWD}/etc:/app/etc \
+    -v /Users/andreas/wc/passport-dataporten:/app/node_modules/passport-dataporten \
     --env-file ENV ${IMAGE}
 docker logs -f ${KUBERNETES_DEPLOYMENT}
 
