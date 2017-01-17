@@ -90,6 +90,7 @@ if (doAuth) {
 	// app.use('/', aclSolberg);
 }
 
+app.use('/static/selectize', express.static('node_modules/selectize'));
 app.use('/static/uninett-theme', express.static('node_modules/uninett-bootstrap-theme'));
 
 app.get('/test', function(req, res) {
