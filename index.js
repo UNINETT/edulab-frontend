@@ -6,6 +6,9 @@ var
 	cookieParser = require('cookie-parser')
 	session = require('express-session'),
 	Dataporten = require('passport-dataporten'),
+    mustacheExpress = require('mustache-express'),
+
+    EduLab = require('./lib/EduLab').EduLab,
 
 	morgan = require('morgan'),
     nconf = require('nconf'),
@@ -45,6 +48,10 @@ app.set('json spaces', 2);
 app.set('port', nconf.get('http:port'));
 app.enable('trust proxy');
 
+app.engine('mustache', mustacheExpress(__dirname + '/views/partials', '.mustache'));
+app.set('view engine', 'mustache');
+app.set('views', __dirname + '/views');
+app.disable('view cache');
 
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({
@@ -92,13 +99,20 @@ app.get('/test', function(req, res) {
 	};
     if (req.user) {
         data.user = req.user;
+        data.u = JSON.stringify(data.user, undefined, 3);
     }
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	});
-	res.end(JSON.stringify(data, undefined, 2));
+
+    res.render('frontpage', data);
+
+	// res.writeHead(200, {
+	// 	'Content-Type': 'application/json'
+	// });
+	// res.end(JSON.stringify(data, undefined, 2));
 });
 
+
+var el = new EduLab();
+app.use('/', el.getRouter());
 app.use('/', express.static('public'));
 
 // app.get('/', function(req, res) {

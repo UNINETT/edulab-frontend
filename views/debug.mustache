@@ -1,0 +1,22 @@
+{{> header}}
+
+
+<div class="container">
+
+    {{#user}}
+        You are authenticated as {{user.displayName}}
+    {{/user}}
+    {{^user}}
+        You are not authenticated <a href="/login">login</a>
+    {{/user}}
+
+    <h2>Data object</h2>
+    <pre>{{x}}</pre>
+
+</div>
+
+
+
+
+
+{{> footer}}

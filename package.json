@@ -16,6 +16,7 @@
     "moment": "^2.10.6",
     "moment-timezone": "^0.4.1",
     "morgan": "^1.7.0",
+    "mustache-express": "^1.2.4",
     "nconf": "^0.8.4",
     "passport-dataporten": "~1.1.3",
     "uninett-bootstrap-theme": "^1.0.1"
