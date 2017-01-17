@@ -129,7 +129,7 @@ app.use('/', express.static('public'));
 // });
 
 app.get('*', function(req, res){
-	res.send('404 Not found', 404);
+	res.status(404).send('404 Not found');
 });
 
 
