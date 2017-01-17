@@ -10,7 +10,29 @@ p.itemdesc {
     color: #888;
 }
 
+.ttcol {
+    font-family: monospace;
+}
 
+.labContainer {
+    margin-top: 2em;
+}
+.labContainer .labEntry {
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 1em;
+
+}
+.labContainer .labEntry.labMachine {
+    border: 2px solid #ccc;
+}
+.labContainer .labEntry.labSlot {
+    border: 3px dashed #ccc;
+}
+.labContainer .labEntry.labSlot p {
+    font-size: 140%;
+    margin: 0px;
+}
 
 .selectize-control.repositories .selectize-dropdown > div {
 			border-bottom: 1px solid rgba(0,0,0,0.05);
