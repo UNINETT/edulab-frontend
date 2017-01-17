@@ -16,33 +16,58 @@
                 <form>
 
 
-                  <div class="form-group">
+                <div class="form-group">
                     <label for="labname">Navn på lab</label>
                     <input type="name" class="form-control" id="labname" placeholder="Navn på lab" value="Lab 3 i faget Maskinlæring (IEX7765)">
-                  </div>
+                </div>
 
 
 
 
-                  <div class="control-group">
-                      <label for="select-gr">Velg undervisningsgruppe</label>
-                      <select id="select-gr" placeholder="Velg gruppe..."></select>
-                  </div>
-                  <script>
-                  // <select id="select-tools"></select>
-                  $('#select-gr').selectize({
-                      maxItems: 1,
-                      valueField: 'id',
-                      labelField: 'title',
-                      searchField: 'title',
-                      options: [
-                          {id: 1, title: 'Maskinlæring (IEX7765)'},
-                          {id: 2, title: 'Matematikk 113 (MAT113)'},
-                          {id: 3, title: 'Fysikk 333 (FYI333)'}
-                      ],
-                      create: false
-                  });
-                  </script>
+                <div class="control-group">
+                  <label for="select-gr">Velg undervisningsgruppe</label>
+                  <select id="select-gr" placeholder="Velg gruppe..."></select>
+                </div>
+                <script>
+                // <select id="select-tools"></select>
+                $('#select-gr').selectize({
+                  maxItems: 1,
+                  valueField: 'id',
+                  labelField: 'title',
+                  searchField: 'title',
+                  options: [
+                      {id: 1, title: 'Maskinlæring (IEX7765)'},
+                      {id: 2, title: 'Matematikk 113 (MAT113)'},
+                      {id: 3, title: 'Fysikk 333 (FYI333)'}
+                  ],
+                  create: false
+                });
+                </script>
+
+
+
+
+
+                <div class="control-group">
+                    <label for="select-net">Velg nettverk og sikkerhetspolicy</label>
+                    <select id="select-net" placeholder="Velg oppsett for nettverk og sikkerhet"></select>
+                </div>
+                <script>
+                // <select id="select-tools"></select>
+                $('#select-net').selectize({
+                    maxItems: 1,
+                    valueField: 'id',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: [
+                        {id: 1, title: 'Egne maskiner er på samme nettverk'},
+                        {id: 2, title: 'Hele lab-en er på samme nettverk'},
+                        {id: 3, title: 'Ingen maskiner på samme nettverk'},
+                        {id: 4, title: 'Offentlig webtjener, eget nettverk'}
+                    ],
+                    create: false
+                });
+                </script>
 
 
 
