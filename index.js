@@ -91,6 +91,7 @@ if (doAuth) {
 }
 
 app.use('/static/selectize', express.static('node_modules/selectize'));
+app.use('/static/bootstrap-datepicker', express.static('node_modules/bootstrap-datepicker'));
 app.use('/static/uninett-theme', express.static('node_modules/uninett-bootstrap-theme'));
 
 app.get('/test', function(req, res) {
